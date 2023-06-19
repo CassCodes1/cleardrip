@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', require('./routes/mainRoutes'));
-app.use('/', require('./routes/contactRoutes'));
-app.use('/', require('./routes/subscriberRoutes'));
+app.use('/api/v1', require('./routes/mainRoutes'));
+app.use('/api/v1', require('./routes/contactRoutes'));
+app.use('/api/v1', require('./routes/subscriberRoutes'));
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
