@@ -2,18 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getContactPage,
-  getNewEstimate,
-  makeNewBooking,
   sendEmail,
+  submitBookingRequest,
 } = require('../controller/contactController');
 
-router.get('/contact', getContactPage);
-
-router.post('/contact/estimate', getNewEstimate);
-
-router.post('/contact/booking-enquiry', makeNewBooking);
-
 router.post('/contact/email-enquiry', sendEmail);
+
+router.post('/contact/booking-request', submitBookingRequest);
 
 module.exports = router;
