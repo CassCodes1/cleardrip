@@ -8,7 +8,7 @@ const {
   getUserProfile,
   updateUserProfile,
   deleteUserProfile,
-} = require('../controller/accountController');
+} = require('../controller/userController');
 
 router.post('/account/login', authUser);
 
