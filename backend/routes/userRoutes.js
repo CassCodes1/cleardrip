@@ -10,16 +10,16 @@ const {
   deleteUserProfile,
 } = require('../controller/userController');
 
-router.post('/users/login', authUser);
+router.post('/login', authUser);
 
-router.post('/users/logout', logoutUser);
+router.post('/logout', logoutUser);
 
-router.post('/users/register', registerUser);
+router.post('/register', registerUser);
 
-router.get('/users/profile', getUserProfile);
+router.get('/profile', getUserProfile);
 
-router.put('/users/profile', updateUserProfile);
+router.put('/profile', updateUserProfile);
 
-router.delete('/users/profile', deleteUserProfile);
+router.delete('/profile', deleteUserProfile);
 
 module.exports = router;

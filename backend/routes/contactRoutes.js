@@ -6,8 +6,8 @@ const {
   submitBookingRequest,
 } = require('../controller/contactController');
 
-router.post('/contact/email-enquiry', sendEmail);
+router.post('/email-enquiry', sendEmail);
 
-router.post('/contact/booking-request', submitBookingRequest);
+router.post('/booking-request', submitBookingRequest);
 
 module.exports = router;
