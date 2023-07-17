@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: 'https://cleardrip-backend.onrender.com/',
+    origin: '*',
   })
 );
 app.use(express.json());
