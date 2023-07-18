@@ -18,6 +18,7 @@
     display: block;
     height: 70px;
     width: auto;
+    border-radius: 15px;
 }
 
 .nav-menu {

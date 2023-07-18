@@ -2,7 +2,8 @@ import { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MenuItems, disableScroll, closeNav } from './MenuItems';
 import './Navbar.css';
-import Logo from '../../assets/logo/new-logo.svg';
+// import Logo from '../../assets/logo/new-logo.svg';
+import Logo from '../../assets/logo/logo-new.png';
 
 class Navbar extends Component {
   state = { clicked: false };
