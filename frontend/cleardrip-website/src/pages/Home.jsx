@@ -10,6 +10,7 @@ import BookingIcon from '../assets/icons/date_time_location.svg';
 import CleaningIcon from '../assets/icons/cleaning-icon.svg';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 
 const Home = () => {
   // Function to scroll down on button click (Hero section)
@@ -187,6 +188,27 @@ const Home = () => {
           <Link to='contact' className='btn--cta'>
             Get my quote &#62;
           </Link>
+        </div>
+      </section>
+
+      <section className='subscribe'>
+        <div className='container'>
+          <h2>Thinking about subscribing?</h2>
+          <p>
+            Get signed up for our VIP package today! Some of the perks include a
+            regular allocated booking slot, before and after pictures, and
+            we&apos;ll even clean your window sills and frames (free of charge).
+            <br />
+            <br />
+            Fill out the form below, and we&apos;ll be in touch to go over the
+            finer details.
+            <br />
+            <br />
+            No opt-in fee is required and no strings attached!
+          </p>
+          <div className='form-container'>
+            <SubscribeForm />
+          </div>
         </div>
       </section>
     </>

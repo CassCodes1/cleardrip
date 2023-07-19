@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import axios from '../../api/axios';
-import './ContactForm.css';
+import '../ContactForm/ContactForm.css';
 
-const SEND_EMAIL_URL = '/contact/email-enquiry';
+const SUBSCRIBE_URL = '/subscription/start';
 
-const ContactForm = () => {
+const SubscribeForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [contactNo, setContactNo] = useState('');
-  const [enquiryType, setEnquiryType] = useState('');
-  const [message, setMessage] = useState('');
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -39,8 +37,6 @@ const ContactForm = () => {
     setLastName('');
     setEmail('');
     setContactNo('');
-    setEnquiryType('');
-    setMessage('');
     setError('');
   };
 
@@ -52,19 +48,18 @@ const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        SEND_EMAIL_URL,
+        SUBSCRIBE_URL,
         JSON.stringify({
           firstName,
           lastName,
           email,
           contactNo,
-          enquiryType,
-          message,
         }),
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: false, //true?
-        }
+        },
+        console.log('success')
       );
 
       if (response) {
@@ -75,9 +70,8 @@ const ContactForm = () => {
       setError(err.response.data.message);
     }
   };
-
   return (
-    <form className='form contact-form' onSubmit={submitHandler}>
+    <form className='form subscribe-form' onSubmit={submitHandler}>
       <div className='form-group'>
         <input
           type='text'
@@ -119,32 +113,6 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
-        <select
-          name='enquiryType'
-          defaultValue='enquiry-type'
-          onChange={(e) => setEnquiryType(e.target.value)}
-        >
-          <option value='enquiry-type' disabled={true}>
-            Enquiry Type (Choose One)
-          </option>
-          <option value='general-enquiry'>General Enquiry</option>
-          <option value='booking-enquiry'>Booking Enquiry</option>
-          <option value='new-estimate'>Quote/Estimate</option>
-        </select>
-      </div>
-
-      <div className='form-group'>
-        <textarea
-          name='message'
-          cols='30'
-          rows='5'
-          placeholder='Your message goes here...'
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        ></textarea>
-      </div>
-
-      <div className='form-group'>
         {error ? (
           <div className='status error'>
             <p>{error}</p>
@@ -152,7 +120,7 @@ const ContactForm = () => {
         ) : (
           success && (
             <div className='status success'>
-              <p>Message sent!</p>
+              <p>Welcome onboard! A Member of the team will be in touch.</p>
             </div>
           )
         )}
@@ -164,4 +132,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default SubscribeForm;
