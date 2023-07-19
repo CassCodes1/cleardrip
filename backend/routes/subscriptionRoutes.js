@@ -6,8 +6,8 @@ const {
   endSubscription,
 } = require('../controller/subscriptionController');
 
-router.post('/subscribe', startSubscription);
+router.post('/subscription/start', startSubscription);
 
-router.post('/unsubscribe', endSubscription);
+router.post('/subscription/end', endSubscription);
 
 module.exports = router;
