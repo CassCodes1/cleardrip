@@ -53,6 +53,8 @@ const startSubscription = asyncHandler(async (req, res) => {
     throw new Error('Please check phone number');
   }
 
+  res.status(200).json({ message: 'Subscribed successfully' });
+
   // Save to database once validation checks complete
 
   // Send email to notify admin
