@@ -48,10 +48,6 @@
     box-shadow: grey 0 0 5px;
     min-height: 443px;
 }
-
-.card--entitlements:hover {
-    box-shadow: grey 0 0 20px;
-}
   
 .card--entitlements .card-top {
     display: flex;
@@ -79,15 +75,6 @@
     border: solid 5px var(--yellow);
     border-radius: 15px;
     box-shadow: grey 0 0 5px;
-}
-
-.card--why-us:hover {
-    box-shadow: grey 0 0 20px;
-}
-
-.card--booking:hover {
-    transform: translateY(-5%);
-    transition: 250ms ease-in-out;
 }
 
 
