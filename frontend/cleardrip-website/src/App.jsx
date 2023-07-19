@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 
 // Layouts
 import RootLayout from './layouts/RootLayout';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path='about' element={<About />} />
       <Route path='services' element={<Services />} />
       <Route path='contact' element={<Contact />} />
+      <Route path='privacy-policy' element={<PrivacyPolicy />} />
     </Route>
   )
 );

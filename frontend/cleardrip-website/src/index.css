@@ -126,7 +126,7 @@ body {
   transform: translateX(0%);
 }
 
-/*** Pages - (Order: Home, About, Services, Contact) ***/
+/*** Pages - (Order: Home, About, Services, Contact, Privacy Policy) ***/
 
 /** Home **/
 /* Hero section */
@@ -305,15 +305,6 @@ body {
 }
 
 /** About **/
-/* Background */
-/* .about-page {
-  background-color: #FFF ;
-} */
-
-
-
-
-
 
 
 
@@ -365,8 +356,10 @@ body {
 /* Subscribe */
 
 
-
-
+/** Privacy Policy **/
+main {
+  padding: 1rem;
+}
 
 
 
