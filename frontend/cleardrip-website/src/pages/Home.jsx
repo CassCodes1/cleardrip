@@ -9,8 +9,10 @@ import QuoteIcon from '../assets/icons/quote-icon.svg';
 import BookingIcon from '../assets/icons/date_time_location.svg';
 import CleaningIcon from '../assets/icons/cleaning-icon.svg';
 import { useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Home = () => {
+  // Function to scroll down on button click (Hero section)
   const introSection = useRef(null);
 
   const scrollToSection = () => {
@@ -19,6 +21,22 @@ const Home = () => {
       behavior: 'smooth',
     });
   };
+
+  // Card component slide-in animations
+  const { ref: whyUs, inView: whyUsSectionVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  const { ref: entitlements, inView: entitlementsSectionVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  const { ref: bookNow, inView: bookNowSectionVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
 
   return (
     <>
@@ -54,10 +72,22 @@ const Home = () => {
         </div>
 
         <section className='why-us'>
-          <div className='container'>
+          <div className='container' ref={whyUs}>
             <div className='inner-container'>
-              <h2>Why use Clear Drip?</h2>
-              <div className='card-wrapper'>
+              <h2
+                className={
+                  whyUsSectionVisible ? ' slide-right appear' : ' slide-right'
+                }
+              >
+                Why use Clear Drip?
+              </h2>
+              <div
+                className={
+                  whyUsSectionVisible
+                    ? 'card-wrapper slide-left appear'
+                    : 'card-wrapper slide-left'
+                }
+              >
                 <Card
                   className='card card--why-us'
                   imgSrc={QualityIcon}
@@ -86,9 +116,15 @@ const Home = () => {
       </section>
 
       <section className='entitlements'>
-        <div className='container'>
+        <div className='container' ref={entitlements}>
           <h2>All our customers are entitled to a...</h2>
-          <div className='card-wrapper'>
+          <div
+            className={
+              entitlementsSectionVisible
+                ? 'card-wrapper slide-left appear'
+                : 'card-wrapper slide-left'
+            }
+          >
             <Card
               className='card card--entitlements'
               imgSrc={ReminderIcon}
@@ -109,13 +145,19 @@ const Home = () => {
       </section>
 
       <section className='book-now'>
-        <div className='container'>
+        <div className='container' ref={bookNow}>
           <h2>
             Book a window cleaner
             <br />
             in just a few steps
           </h2>
-          <div className='card-wrapper'>
+          <div
+            className={
+              bookNowSectionVisible
+                ? 'card-wrapper slide-left appear'
+                : 'card-wrapper slide-left'
+            }
+          >
             <Card
               className='card card--booking'
               imgSrc={QuoteIcon}

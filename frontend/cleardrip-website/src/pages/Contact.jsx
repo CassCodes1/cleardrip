@@ -3,8 +3,20 @@ import PhoneIcon from '../assets/icons/call-us-icon.svg';
 import EnvelopeIcon from '../assets/icons/envelope-icon.svg';
 import ContactForm from '../components/ContactForm/ContactForm';
 import Accordion from '../components/Accordion/Accordion';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
+  // Card component slide-in animations
+  const { ref: contactMethods, inView: contactSectionVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  const { ref: faqSection, inView: faqSectionVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
   return (
     <>
       <section className='page-heading'>
@@ -26,8 +38,14 @@ const Contact = () => {
         </div>
       </section>
       <section className='contact-methods'>
-        <div className='container'>
-          <div className='card-wrapper'>
+        <div className='container' ref={contactMethods}>
+          <div
+            className={
+              contactSectionVisible
+                ? 'card-wrapper slide-left appear'
+                : 'card-wrapper slide-left'
+            }
+          >
             <Card
               className='card card--entitlements card--contact'
               imgSrc={PhoneIcon}
@@ -60,11 +78,21 @@ const Contact = () => {
         </div>
       </section>
       <section className='faq-section'>
-        <div className='container'>
-          <h2>
+        <div className='container' ref={faqSection}>
+          <h2
+            className={
+              faqSectionVisible ? ' slide-right appear' : ' slide-right'
+            }
+          >
             <span>F</span>requently <span>A</span>sked <span>Q</span>uestions
           </h2>
-          <div className='accordion-wrapper'>
+          <div
+            className={
+              faqSectionVisible
+                ? 'accordion-wrapper slide-left appear'
+                : 'accordion-wrapper slide-left'
+            }
+          >
             <Accordion />
           </div>
         </div>

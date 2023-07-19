@@ -26,6 +26,7 @@ All styles for components can be found in their associating folder (e.g src/comp
 body {
   font-family: 'Fira Sans', sans-serif;
   background-color: #FFF;
+  overflow-x: hidden !important;
 }
 
 .container {
@@ -102,6 +103,28 @@ body {
   gap: 3rem;
 }
 
+/* Global Animations */
+.slide-right {
+  opacity: 0;
+  transition: all 750ms ease-in;
+  transform: translateX(-100%);
+}
+
+.slide-right.appear {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.slide-left {
+  opacity: 0;
+  transition: all 750ms ease-in;
+  transform: translateX(100%);
+}
+
+.slide-left.appear {
+  opacity: 1;
+  transform: translateX(0%);
+}
 
 /*** Pages - (Order: Home, About, Services, Contact) ***/
 
