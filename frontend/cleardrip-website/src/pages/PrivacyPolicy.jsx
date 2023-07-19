@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   return (
-    <main>
+    <main className='privacy-policy'>
       <style
         dangerouslySetInnerHTML={{
           __html:
