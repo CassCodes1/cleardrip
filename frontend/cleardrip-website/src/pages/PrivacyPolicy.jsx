@@ -5731,10 +5731,11 @@ const PrivacyPolicy = () => {
                                                                                         10
                                                                                         Bruce
                                                                                         Lawn,
-                                                                                        Leeds
+                                                                                        <br />
+                                                                                        Leeds{' '}
+                                                                                        <br />
                                                                                         LS12
-                                                                                        1XX,
-                                                                                        UK
+                                                                                        1XX
                                                                                       </bdt>
                                                                                       <span
                                                                                         style={{
@@ -5763,50 +5764,7 @@ const PrivacyPolicy = () => {
                                                                                     style={{
                                                                                       fontSize: 15,
                                                                                     }}
-                                                                                  >
-                                                                                    <span data-custom-class='body_text'>
-                                                                                      <bdt className='question'>
-                                                                                        Leeds
-                                                                                      </bdt>
-                                                                                      <span
-                                                                                        style={{
-                                                                                          color:
-                                                                                            'rgb(89, 89, 89)',
-                                                                                        }}
-                                                                                      >
-                                                                                        <span
-                                                                                          style={{
-                                                                                            fontSize: 15,
-                                                                                          }}
-                                                                                        >
-                                                                                          <bdt className='block-component' />
-
-                                                                                          ,{' '}
-                                                                                          <bdt className='question'>
-                                                                                            England
-                                                                                          </bdt>
-                                                                                          <bdt className='statement-end-if-in-editor' />
-                                                                                          <bdt className='block-component' />{' '}
-                                                                                          <bdt className='question'>
-                                                                                            LS12
-                                                                                            1XX
-                                                                                          </bdt>
-                                                                                          <bdt className='statement-end-if-in-editor' />
-                                                                                          <bdt className='block-component' />
-                                                                                          <bdt className='block-component' />
-                                                                                        </span>
-                                                                                      </span>
-                                                                                      <span data-custom-class='body_text'>
-                                                                                        <span
-                                                                                          style={{
-                                                                                            fontSize: 15,
-                                                                                          }}
-                                                                                        >
-                                                                                          <bdt className='block-component' />
-                                                                                        </span>
-                                                                                      </span>
-                                                                                    </span>
-                                                                                  </span>
+                                                                                  ></span>
                                                                                 </div>
                                                                                 <div
                                                                                   style={{
