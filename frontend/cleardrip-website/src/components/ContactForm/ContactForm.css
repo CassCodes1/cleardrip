@@ -8,6 +8,10 @@
   border: 5px solid var(--primary-blue);
   border-radius: 15px;
 }
+
+.subscribe-form {
+  padding-bottom: 1.2rem;
+}
   
 .form-group {
   margin: 0.2rem 0;
@@ -54,6 +58,19 @@ textarea {
   background-color: rgba(60, 179, 113, 0.2);
   color: green;
   border: 2px solid green;
+}
+
+.opt-out {
+  margin-top: 1.2rem !important;
+  font-size: 1rem !important;
+}
+
+.opt-out a {
+  color: inherit;
+}
+
+.opt-out a:hover {
+  color: var(--primary-blue);
 }
   
 
