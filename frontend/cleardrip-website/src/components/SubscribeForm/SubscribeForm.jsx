@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
 import '../ContactForm/ContactForm.css';
 
@@ -120,13 +121,17 @@ const SubscribeForm = () => {
         ) : (
           success && (
             <div className='status success'>
-              <p>Welcome onboard! A Member of the team will be in touch.</p>
+              <p>Welcome onboard! A member of the team will be in touch.</p>
             </div>
           )
         )}
         <button type='submit' className='submit'>
           Submit
         </button>
+        <p className='opt-out'>
+          You can opt-out at any time. See our{' '}
+          <Link to='privacy-policy'>privacy policy</Link>.
+        </p>
       </div>
     </form>
   );
