@@ -1,0 +1,82 @@
+/* Tabbed Panel*/
+.tabbed-panel {
+    background-color: #101223;
+    height: auto;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+}
+
+/* Tabs Navigation */
+.tab-nav {
+    width: 60%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #053742;
+    border: 3px solid var(--primary-blue);
+    border-radius: 5px;
+    padding-left: 0px;
+    overflow-x: auto;
+}
+   
+.tab-nav li {
+    color: #FFF;
+    width: 50%;
+    padding: 1rem;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s;
+    white-space: nowrap;
+    min-width: 159px;
+}
+   
+.tab-nav li:hover {
+    background-color: rgba(50, 224, 196, 0.15);
+}
+   
+.tab-nav li.active {
+    background-color: var(--primary-blue);
+}
+
+/* Tab Content */
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.panel-image {
+    width: 90%;
+}
+
+.panel-image img {
+    display: block;
+    width: 100%;
+    max-height: 498px;
+    object-fit: contain;
+}
+
+.panel-image,
+.panel-text {
+    flex: 1;
+}
+
+.panel-text {
+    color: #FFF;
+    font-size: 1.2rem;
+    max-width: 90%;
+}
+
+/*** Media Queries ***/
+@media (max-width: 769px) {
+    .tabbed-panel {
+        padding: 2rem 0;
+    }
+
+    .tab-nav {
+        width: 90%;
+    }
+}
