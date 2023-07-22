@@ -26,17 +26,17 @@ const Home = () => {
   // Card component slide-in animations
   const { ref: whyUs, inView: whyUsSectionVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   const { ref: entitlements, inView: entitlementsSectionVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   const { ref: bookNow, inView: bookNowSectionVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   return (
@@ -52,7 +52,7 @@ const Home = () => {
           </Link>
         </div>
         <button className='arrow-container' onClick={scrollToSection}>
-          <p className='arrow'>^</p>
+          <i className='fa fa-angle-down'></i>
         </button>
       </section>
 

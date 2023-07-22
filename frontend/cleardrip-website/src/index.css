@@ -49,7 +49,7 @@ body {
   background-color: var(--primary-blue);
   color: #FFF;
   font-size: 3rem;
-  border-radius: 50px;
+  border-radius: 5px;
   box-shadow: grey 0 0 3px;
   text-align: center;
   padding: 1rem;
@@ -70,6 +70,10 @@ body {
   object-fit: contain;
   width: 100%;
   max-width: 803.75px;
+}
+
+.hero-image .van {
+  box-shadow: gray 0 0 5px;
 }
 
 .page-info .intro-text {
@@ -169,13 +173,12 @@ body {
   bottom: 4%;
   left: 0;
   right: 0;
-  transform: rotate(180deg);
   width: max-content;
   margin: 0 auto;
   cursor: pointer;
   border: solid 4px var(--yellow);
-  border-radius: 30px;
-  background: rgba(0,0,0, 0.1);
+  border: none;
+  background: none;
   appearance: none;
   padding: 0 3px;
   animation: MoveUpDown 1.4s linear infinite ;
@@ -190,21 +193,13 @@ body {
   }
 }
 
-.arrow-container:hover {
-  color: var(--primary-blue);
-  border: solid 4px var(--primary-blue);
-  background: rgba(0,0,0, 0.2);
-  transition: all 0.2s ease-out;
-}
-
-.arrow {
-  font-size: 3.1rem;
-  font-weight: 200;
+.fa-angle-down {
   color: var(--yellow);
+  font-size: 3.1rem;
 }
 
-.arrow:hover{
-  color: var(--primary-blue);
+.fa-angle-down:hover{
+  color: var(--secondary-blue);
 }
 
 /* Intro section */
@@ -333,8 +328,20 @@ body {
 }
 
 
-/** About **/
+/** About Page**/
+/* Nothing here yet */
 
+
+/** Services Page **/
+/* Page info section */
+.intro-text.services p {
+  margin-bottom: 1.5rem;
+}
+
+/* Services info section */
+.services-info {
+  padding-bottom: 4rem;
+}
 
 
 /** Contact **/
@@ -382,21 +389,11 @@ body {
   padding: 2rem;
 }
 
-/* Subscribe */
-
 
 /** Privacy Policy **/
 main .privacy-policy {
   padding: 2rem;
 }
-
-
-
-
-
-
-
-
 
 
 /*** Media Queries ***/
