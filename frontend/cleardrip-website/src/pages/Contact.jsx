@@ -9,12 +9,11 @@ const Contact = () => {
   // Card component slide-in animations
   const { ref: contactMethods, inView: contactSectionVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
   });
 
   const { ref: faqSection, inView: faqSectionVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   return (
