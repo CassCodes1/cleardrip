@@ -40,6 +40,10 @@ textarea {
   background: var(--primary-blue);
   color: #FFF;
 }
+
+.submit:hover {
+  background-color: rgba(55, 175, 235, 0.8);
+}
   
 .status {
   text-align: center;
