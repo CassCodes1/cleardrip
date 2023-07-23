@@ -6,7 +6,7 @@ const TabContent = (props) => {
   TabContent.propTypes = {
     id: PropTypes.string,
     activeTab: PropTypes.string,
-    children: PropTypes.string, //not sure
+    children: PropTypes.array,
   };
 
   return activeTab === id ? (

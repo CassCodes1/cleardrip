@@ -7,7 +7,7 @@ const TabNavItem = (props) => {
     id: PropTypes.string,
     title: PropTypes.string,
     activeTab: PropTypes.string,
-    setActiveTab: PropTypes.string,
+    setActiveTab: PropTypes.func,
   };
 
   // Function to set content for active tab
