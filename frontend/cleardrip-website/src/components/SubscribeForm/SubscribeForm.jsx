@@ -59,8 +59,7 @@ const SubscribeForm = () => {
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: false, //true?
-        },
-        console.log('success')
+        }
       );
 
       if (response) {
