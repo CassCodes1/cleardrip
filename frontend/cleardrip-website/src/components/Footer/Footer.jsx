@@ -60,12 +60,20 @@ const Footer = () => {
           <div className='footer-right'>
             <div className='footer-socials'>
               <div className='icon-wrapper'>
-                <a href='#'>
+                <a
+                  href='https://www.facebook.com/people/CLEAR-DRIP-LTD/100087404719440/'
+                  target='_blank'
+                  rel='noreferrer'
+                >
                   <FaFacebook className='social-icon' />
                 </a>
               </div>
               <div className='icon-wrapper'>
-                <a href='#'>
+                <a
+                  href='https://www.instagram.com/clear.drip/?igshid=MmU2YjMzNjRIOQ'
+                  target='_blank'
+                  rel='noreferrer'
+                >
                   <FaInstagram className='social-icon' />
                 </a>
               </div>
