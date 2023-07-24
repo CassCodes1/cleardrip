@@ -1,4 +1,6 @@
 const asyncHandler = require('express-async-handler');
+const Subscriber = require('../models/subscriberModel');
+const { main } = require('../utils/nodemailer');
 
 // @desc Start new subscription
 // route POST /api/v1//subscription/start
@@ -53,11 +55,60 @@ const startSubscription = asyncHandler(async (req, res) => {
     throw new Error('Please check phone number');
   }
 
-  res.status(200).json({ message: 'Subscribed successfully' });
-
   // Save to database once validation checks complete
+  // Check if subscriber exists
+  const subscriberExists = await Subscriber.findOne({ email });
+
+  if (subscriberExists) {
+    res.status(400);
+    throw new Error("Looks like you've already subscribed.");
+  }
+
+  // Create subscriber
+  const subscriber = await Subscriber.create({
+    firstName,
+    lastName,
+    email,
+    contactNo,
+  });
+
+  if (subscriber) {
+    res.status(201).json({
+      _id: subscriber.id,
+      name: subscriber.firstName + ' ' + subscriber.lastName,
+      email: subscriber.email,
+      contactNo: subscriber.contactNo,
+    });
+  } else {
+    res.status(400);
+    throw new Error('Invalid user data');
+  }
 
   // Send email to notify admin
+  const sendData = () => {
+    const sender = firstName + ' ' + lastName + ' ' + email;
+    const recipient = process.env.EMAIL_RECIPIENT;
+    const body = `
+    New subscriber details:
+
+    Name: 
+    ${firstName} ${lastName}
+
+    Phone Number: 
+    ${contactNo}
+    `;
+
+    main(
+      sender,
+      recipient,
+      'You Have a New Subscriber: ' + firstName + ' ' + lastName,
+      body
+    ).catch((e) => console.log(e));
+
+    res.status(200).json({ message: 'Send email' });
+  };
+
+  sendData();
 });
 
 // @desc Start end subscription
