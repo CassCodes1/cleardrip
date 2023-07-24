@@ -15,6 +15,14 @@
   
 .form-group {
   margin: 0.2rem 0;
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: -2%;
+  font-size: 1px;
+  color: #F3F3F3;
 }
   
 .form-group,

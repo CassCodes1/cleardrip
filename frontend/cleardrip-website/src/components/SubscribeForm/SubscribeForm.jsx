@@ -74,6 +74,7 @@ const SubscribeForm = () => {
   return (
     <form className='form subscribe-form' onSubmit={submitHandler}>
       <div className='form-group'>
+        <label htmlFor='firstName'>First Name</label>
         <input
           type='text'
           name='firstName'
@@ -84,6 +85,7 @@ const SubscribeForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='lastName'>Last Name</label>
         <input
           type='text'
           name='lastName'
@@ -94,6 +96,7 @@ const SubscribeForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='email'>Email</label>
         <input
           type='text'
           name='email'
@@ -104,6 +107,7 @@ const SubscribeForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='contactNo'>Phone Number</label>
         <input
           type='tel'
           name='contactNo'

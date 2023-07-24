@@ -79,6 +79,7 @@ const ContactForm = () => {
   return (
     <form className='form contact-form' onSubmit={submitHandler}>
       <div className='form-group'>
+        <label htmlFor='firstName'>First Name</label>
         <input
           type='text'
           name='firstName'
@@ -89,6 +90,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='lastName'>Last Name</label>
         <input
           type='text'
           name='lastName'
@@ -99,6 +101,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='email'>Email</label>
         <input
           type='text'
           name='email'
@@ -109,6 +112,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='contactNo'>Phone Number</label>
         <input
           type='tel'
           name='contactNo'
@@ -119,6 +123,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='enquiryType'>Enquiry Type</label>
         <select
           name='enquiryType'
           defaultValue='enquiry-type'
@@ -134,6 +139,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        <label htmlFor='message'>Message</label>
         <textarea
           name='message'
           cols='30'
