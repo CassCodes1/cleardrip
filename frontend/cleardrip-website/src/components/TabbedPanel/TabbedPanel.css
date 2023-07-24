@@ -8,7 +8,7 @@
 
 /* Tabs Navigation */
 .tab-nav {
-    width: 60%;
+    width: 90%;
     margin: 0 auto 2rem;
     display: flex;
     align-items: center;
@@ -42,10 +42,59 @@
 
 /* Tab Content */
 .tab-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+}
+
+.swipe-icon {
+    position: absolute;
+    top: -12%;
+    display: none;
+    animation: MoveLeftRight 4s linear infinite ;
+}
+
+@keyframes MoveLeftRight {
+    0%, 100% {
+      left: 50%;
+      right: 50%;
+    }
+    25% {
+      right: 25%;
+    }
+    75% {
+      left: 25%;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    width: 250px;
+    text-align: center;
+    top: 4%;
+    background-color: white;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: none;
+}
+
+.swipe-icon.d-none,
+.tooltip.d-none {
+    display: none;
+}
+
+.tooltip button {
+    appearance: none;
+    background: var(--secondary-blue);
+    color: #FFF;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
 }
 
 .panel-image {
@@ -75,8 +124,11 @@
     .tabbed-panel {
         padding: 2rem 0;
     }
+}
 
-    .tab-nav {
-        width: 90%;
+@media (max-width: 500px) {
+    .swipe-icon,
+    .tooltip {
+        display: block;
     }
 }

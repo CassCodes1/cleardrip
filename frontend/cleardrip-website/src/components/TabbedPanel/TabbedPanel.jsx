@@ -5,9 +5,17 @@ import TabContent from './TabContent';
 import WindowCleaning from '../../assets/images/window-cleaning.jpg';
 import PressureWashing from '../../assets/images/pressure-washing.jpeg';
 import GutterCleaning from '../../assets/images/gutter-cleaning.jpg';
+import SwipeIcon from '../../assets/icons/swipe-icon.svg';
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState('tab1');
+
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    console.log(clicked);
+  };
 
   return (
     <div className='tabbed-panel'>
@@ -33,6 +41,17 @@ const Tabs = () => {
       </ul>
       <div className='outlet'>
         <TabContent id='tab1' activeTab={activeTab}>
+          <img
+            className={clicked ? 'swipe-icon d-none' : 'swipe-icon'}
+            src={SwipeIcon}
+            alt='Swipe left or right icon'
+          />
+          <div className={clicked ? 'tooltip d-none' : 'tooltip'}>
+            <p>
+              Swipe left or right above to see our complete list of services.
+            </p>
+            <button onClick={handleClick}>Okay, got it!</button>
+          </div>
           <div className='panel-image'>
             <img src={WindowCleaning} alt='Image of clean windows' />
           </div>
