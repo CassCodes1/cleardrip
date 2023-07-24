@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler');
+const Contact = require('../models/contactModel');
 const { main } = require('../utils/nodemailer');
-require('dotenv').config();
 
 // @desc Auth user/set token (Login user)
 // route POST /api/v1/contact/email-enquiry
@@ -64,6 +64,29 @@ const sendEmail = asyncHandler(async (req, res) => {
   if (!message) {
     res.status(400);
     throw new Error('Message cannot be empty');
+  }
+
+  // Save email to database
+  const emailMessage = await Contact.create({
+    firstName,
+    lastName,
+    email,
+    contactNo,
+    enquiryType,
+    message,
+  });
+
+  if (emailMessage) {
+    res.status(201).json({
+      _id: emailMessage.id,
+      name: emailMessage.firstName + ' ' + emailMessage.lastName,
+      email: emailMessage.email,
+      contactNo: emailMessage.contactNo,
+      enquiryType: emailMessage.enquiryType,
+    });
+  } else {
+    res.status(400);
+    throw new Error('Invalid data');
   }
 
   // Send email once validation checks complete
