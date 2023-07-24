@@ -14,7 +14,6 @@ const Tabs = () => {
 
   const handleClick = () => {
     setClicked(true);
-    console.log(clicked);
   };
 
   return (
