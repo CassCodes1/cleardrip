@@ -70,17 +70,20 @@ const sendEmail = asyncHandler(async (req, res) => {
   const sendData = () => {
     const sender = firstName + ' ' + lastName + ' ' + email;
     const recipient = process.env.EMAIL_RECIPIENT;
-    const body = message;
+    const body = `
+    You have a new message from:
 
-    main(
-      sender,
-      recipient,
-      enquiryType,
-      firstName,
-      lastName,
-      contactNo,
-      body
-    ).catch((e) => console.log(e));
+    Name: 
+    ${firstName} ${lastName}
+
+    Phone Number: 
+    ${contactNo}
+    
+    Message:
+    ${message}
+    `;
+
+    main(sender, recipient, enquiryType, body).catch((e) => console.log(e));
 
     res.status(200).json({ message: 'Send email' });
   };
