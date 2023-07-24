@@ -222,6 +222,7 @@ body {
   justify-content: center;
   padding-top: 2.5em;
   padding-bottom: 2.5em;
+  overflow-x: hidden;
 }
 
 .why-us .inner-container {
@@ -247,12 +248,17 @@ body {
 
 .entitlements .container {
   padding-bottom: 6em;
+  overflow-x: hidden;
 }
 
 /* Book Now Section */
 .book-now {
   background-color: #EBEBEB;
   padding: 6em 0;
+}
+
+.book-now .container {
+  overflow-x: hidden;
 }
 
 .book-now .card-wrapper {
@@ -347,6 +353,10 @@ body {
 /** Contact **/
 /* Page heading section */
 
+.contact-methods .container {
+  overflow-x: hidden;
+}
+
 .contact-methods .card-wrapper {
   padding-bottom: 6rem;
 }
@@ -383,6 +393,7 @@ body {
 
 .faq-section .container {
   padding: 6rem 14rem;
+  overflow-x: hidden;
 }
 
 .accordion-wrapper {
