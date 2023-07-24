@@ -97,6 +97,10 @@
     margin-top: 0.5rem;
 }
 
+.tooltip button:hover {
+    background: rgba(15, 112, 189, 0.8);
+}
+
 .panel-image {
     width: 90%;
 }
