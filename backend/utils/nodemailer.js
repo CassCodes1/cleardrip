@@ -14,32 +14,12 @@ const transporter = nodemailer.createTransport({
   // debug: true,
 });
 
-async function main(
-  sender,
-  recipient,
-  subject,
-  firstName,
-  lastName,
-  contactNo,
-  body
-) {
+async function main(sender, recipient, subject, body) {
   const info = await transporter.sendMail({
     from: sender,
     to: recipient,
     subject: subject,
-    // text: body,
-    text: `
-    You have a new message from:
-
-    Name: 
-    ${firstName} ${lastName}
-
-    Phone Number: 
-    ${contactNo}
-    
-    Message:
-    ${body}
-    `,
+    text: body,
   });
 
   console.log('Message sent: %s', info.messageId);
