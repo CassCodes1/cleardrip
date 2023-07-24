@@ -72,18 +72,6 @@ const startSubscription = asyncHandler(async (req, res) => {
     contactNo,
   });
 
-  if (subscriber) {
-    res.status(201).json({
-      _id: subscriber.id,
-      name: subscriber.firstName + ' ' + subscriber.lastName,
-      email: subscriber.email,
-      contactNo: subscriber.contactNo,
-    });
-  } else {
-    res.status(400);
-    throw new Error('Invalid user data');
-  }
-
   // Send email to notify admin
   const sendData = () => {
     const sender = firstName + ' ' + lastName + ' ' + email;
@@ -104,11 +92,21 @@ const startSubscription = asyncHandler(async (req, res) => {
       'You Have a New Subscriber: ' + firstName + ' ' + lastName,
       body
     ).catch((e) => console.log(e));
-
-    res.status(200).json({ message: 'Send email' });
   };
 
   sendData();
+
+  if (subscriber) {
+    res.status(201).json({
+      _id: subscriber.id,
+      name: subscriber.firstName + ' ' + subscriber.lastName,
+      email: subscriber.email,
+      contactNo: subscriber.contactNo,
+    });
+  } else {
+    res.status(400);
+    throw new Error('Invalid user data');
+  }
 });
 
 // @desc Start end subscription
