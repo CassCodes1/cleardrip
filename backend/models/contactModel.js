@@ -13,7 +13,6 @@ const contactSchema = mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
     },
     contactNo: {
       type: String,
