@@ -12,7 +12,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: 'https://www.cleardrip.co.uk/,  https://cleardrip.co.uk/',
+    origin: '*',
   })
 );
 app.use(express.json());
