@@ -13,7 +13,7 @@ connectDB();
 app.use(
   cors({
     origin:
-      'https://www.cleardrip.co.uk/, https://www.cleardrip.co.uk https://cleardrip.co.uk/ https://cleardrip.co.uk',
+      'https://www.cleardrip.co.uk/,  https://cleardrip.co.uk/, https://cleardrip-backend.onrender.com/',
   })
 );
 app.use(express.json());
