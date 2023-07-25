@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 
 connectDB();
 
-app.use(cors());
+app.use(cors({ origin: 'https://www.cleardrip.co.uk/' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
