@@ -1,0 +1,78 @@
+.card {
+    flex: 1;
+    min-width: 240px;
+    max-width: 371px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+  
+.card-top img {
+    height: 130px;
+    width: auto;
+    margin-bottom: 1.8rem;
+}
+  
+.card-bottom {
+    padding: 0 1.3rem;
+}
+  
+.card-bottom h3 {
+    margin-bottom: 0.5rem;
+}
+  
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+  
+.contact-us a {
+    text-decoration: none;
+    color: #000;
+    font-style: normal;
+}
+
+/*** Card Variants (Alphabetical order) ***/
+.card--contact {
+    min-height: 487px;
+} 
+
+.card--entitlements {
+    background-color: #F8F8FF;
+    border: solid 5px var(--primary-blue);
+    border-radius: 15px;
+    box-shadow: grey 0 0 5px;
+    min-height: 443px;
+}
+  
+.card--entitlements .card-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-top: auto;
+}
+  
+.card--entitlements img {
+    width: 120px;
+    height: auto;
+}
+  
+.card--entitlements .ccard {
+    width: auto;
+}
+  
+.card--entitlements .card-bottom {
+    margin-top: auto;
+}
+
+.card--why-us {
+    background-color: #FFF;
+    border: solid 5px var(--yellow);
+    border-radius: 15px;
+    box-shadow: grey 0 0 5px;
+}

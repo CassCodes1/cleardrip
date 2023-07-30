@@ -1,0 +1,138 @@
+/* Tabbed Panel*/
+.tabbed-panel {
+    background-color: #101223;
+    height: auto;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+}
+
+/* Tabs Navigation */
+.tab-nav {
+    width: 90%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #053742;
+    border: 3px solid var(--primary-blue);
+    border-radius: 5px;
+    padding-left: 0px;
+    overflow-x: auto;
+}
+   
+.tab-nav li {
+    color: #FFF;
+    width: 50%;
+    padding: 1rem;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s;
+    white-space: nowrap;
+    min-width: 159px;
+}
+   
+.tab-nav li:hover {
+    background-color: rgba(50, 224, 196, 0.15);
+}
+   
+.tab-nav li.active {
+    background-color: var(--primary-blue);
+}
+
+/* Tab Content */
+.tab-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.swipe-icon {
+    position: absolute;
+    top: -12%;
+    display: none;
+    animation: MoveLeftRight 4s linear infinite ;
+}
+
+@keyframes MoveLeftRight {
+    0%, 100% {
+      left: 50%;
+      right: 50%;
+    }
+    25% {
+      right: 25%;
+    }
+    75% {
+      left: 25%;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    width: 250px;
+    text-align: center;
+    top: 4%;
+    background-color: white;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: none;
+}
+
+.swipe-icon.d-none,
+.tooltip.d-none {
+    display: none;
+}
+
+.tooltip button {
+    appearance: none;
+    background: var(--secondary-blue);
+    color: #FFF;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.tooltip button:hover {
+    background: rgba(15, 112, 189, 0.8);
+}
+
+.panel-image {
+    width: 90%;
+}
+
+.panel-image img {
+    display: block;
+    width: 100%;
+    max-height: 498px;
+    object-fit: contain;
+}
+
+.panel-image,
+.panel-text {
+    flex: 1;
+}
+
+.panel-text {
+    color: #FFF;
+    font-size: 1.2rem;
+    max-width: 90%;
+}
+
+/*** Media Queries ***/
+@media (max-width: 769px) {
+    .tabbed-panel {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .swipe-icon,
+    .tooltip {
+        display: block;
+    }
+}
