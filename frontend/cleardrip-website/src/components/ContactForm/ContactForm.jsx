@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from '../../api/axios';
 import './ContactForm.css';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const SEND_EMAIL_URL = '/contact/email-enquiry';
 
@@ -11,6 +12,8 @@ const ContactForm = () => {
   const [contactNo, setContactNo] = useState('');
   const [enquiryType, setEnquiryType] = useState('');
   const [message, setMessage] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -51,6 +54,7 @@ const ContactForm = () => {
     reformatInput();
 
     try {
+      setIsLoading(true);
       const response = await axios.post(
         SEND_EMAIL_URL,
         JSON.stringify({
@@ -63,15 +67,17 @@ const ContactForm = () => {
         }),
         {
           headers: { 'Content-Type': 'application/json' },
-          withCredentials: false, //true?
+          withCredentials: false,
         }
       );
 
-      if (response) {
+      if (response.status === 201) {
+        setIsLoading(false);
         resetForm();
         setSuccess(true);
       }
     } catch (err) {
+      setIsLoading(false);
       setError(err.response.data.message);
     }
   };
@@ -151,6 +157,7 @@ const ContactForm = () => {
       </div>
 
       <div className='form-group'>
+        {isLoading && <LoadingSpinner />}
         {error ? (
           <div className='status error'>
             <p>{error}</p>

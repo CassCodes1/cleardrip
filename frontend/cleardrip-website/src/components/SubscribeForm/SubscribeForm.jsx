@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
 import '../ContactForm/ContactForm.css';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const SUBSCRIBE_URL = '/subscription/start';
 
@@ -10,6 +11,8 @@ const SubscribeForm = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [contactNo, setContactNo] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -48,6 +51,7 @@ const SubscribeForm = () => {
     reformatInput();
 
     try {
+      setIsLoading(true);
       const response = await axios.post(
         SUBSCRIBE_URL,
         JSON.stringify({
@@ -58,15 +62,17 @@ const SubscribeForm = () => {
         }),
         {
           headers: { 'Content-Type': 'application/json' },
-          withCredentials: false, //true?
+          withCredentials: false,
         }
       );
 
-      if (response) {
+      if (response.status === 201) {
+        setIsLoading(false);
         resetForm();
         setSuccess(true);
       }
     } catch (err) {
+      setIsLoading(false);
       setError(err.response.data.message);
     }
   };
@@ -117,6 +123,7 @@ const SubscribeForm = () => {
       </div>
 
       <div className='form-group'>
+        {isLoading && <LoadingSpinner />}
         {error ? (
           <div className='status error'>
             <p>{error}</p>
