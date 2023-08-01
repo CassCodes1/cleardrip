@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const Contact = require('../models/contactModel');
 const { main } = require('../utils/nodemailer');
 
-// @desc Auth user/set token (Login user)
+// @desc Send Email (Contact Form)
 // route POST /api/v1/contact/email-enquiry
 // @access Public
 const sendEmail = asyncHandler(async (req, res) => {
@@ -114,12 +114,12 @@ const sendEmail = asyncHandler(async (req, res) => {
   sendData();
 });
 
-// @desc Make
+// @desc Submit a booking request
 // route POST /api/v1/contact/booking-request
 // @access Public
-const submitBookingRequest = (req, res) => {
+const submitBookingRequest = asyncHandler(async (req, res) => {
   res.status(200).json({ message: 'Submit booking request' });
-};
+});
 
 module.exports = {
   sendEmail,

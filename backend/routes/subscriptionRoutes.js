@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   startSubscription,
   endSubscription,
-} = require('../controller/subscriptionController');
+} = require('../controllers/subscriptionController');
 
 router.post('/start', startSubscription);
 

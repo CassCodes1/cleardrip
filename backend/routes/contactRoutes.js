@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   sendEmail,
   submitBookingRequest,
-} = require('../controller/contactController');
+} = require('../controllers/contactController');
 
 router.post('/email-enquiry', sendEmail);
 
