@@ -10,10 +10,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // Layouts
 import RootLayout from './layouts/RootLayout';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
