@@ -109,14 +109,7 @@ const startSubscription = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Start end subscription
-// route POST /api/v1//subscription/end
-// @access Public
-const endSubscription = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: 'unsubscribe' });
-});
 
 module.exports = {
   startSubscription,
-  endSubscription,
 };

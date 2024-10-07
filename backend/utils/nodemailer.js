@@ -1,17 +1,14 @@
-'use strict';
-const nodemailer = require('nodemailer');
-require('dotenv').config();
+"use strict";
+const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.sendinblue.com',
-  port: 587,
-  secure: false,
+  host: "smtp-relay.sendinblue.com",
+  port: process.env.MAIL_PORT,
+  secure: true,
   auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.SMTP_USERNAME,
+    pass: process.env.SMTP_PASSWORD,
   },
-  // logger: true,
-  // debug: true,
 });
 
 async function main(sender, recipient, subject, body) {
@@ -22,7 +19,7 @@ async function main(sender, recipient, subject, body) {
     text: body,
   });
 
-  console.log('Message sent: %s', info.messageId);
+  console.log("Message sent: %s", info.messageId);
 }
 
 module.exports = {

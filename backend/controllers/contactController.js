@@ -1,6 +1,5 @@
-const asyncHandler = require('express-async-handler');
-const Contact = require('../models/contactModel');
-const { main } = require('../utils/nodemailer');
+const asyncHandler = require("express-async-handler");
+const { main } = require("../utils/nodemailer");
 
 // @desc Send Email (Contact Form)
 // route POST /api/v1/contact/email-enquiry
@@ -22,76 +21,53 @@ const sendEmail = asyncHandler(async (req, res) => {
 
   if (!firstName) {
     res.status(400);
-    throw new Error('First name is required');
+    throw new Error("First name is required");
   }
   if (!isValidFirstName) {
     res.status(400);
-    throw new Error('Please enter a valid first name');
+    throw new Error("Please enter a valid first name");
   }
 
   if (!lastName) {
     res.status(400);
-    throw new Error('Last name is required');
+    throw new Error("Last name is required");
   }
   if (!isValidLastName) {
     res.status(400);
-    throw new Error('Please enter a valid last name');
+    throw new Error("Please enter a valid last name");
   }
 
   if (!email) {
     res.status(400);
-    throw new Error('Email is required');
+    throw new Error("Email is required");
   }
   if (!isValidEmail) {
     res.status(400);
-    throw new Error('Email address invalid');
+    throw new Error("Email address invalid");
   }
 
   if (!contactNo) {
     res.status(400);
-    throw new Error('Phone number is required');
+    throw new Error("Phone number is required");
   }
   if (!isValidNumber) {
     res.status(400);
-    throw new Error('Please check phone number');
+    throw new Error("Please check phone number");
   }
 
   if (!enquiryType) {
     res.status(400);
-    throw new Error('Please choose enquiry type');
+    throw new Error("Please choose enquiry type");
   }
 
   if (!message) {
     res.status(400);
-    throw new Error('Message cannot be empty');
-  }
-
-  // Save email to database
-  const emailMessage = await Contact.create({
-    firstName,
-    lastName,
-    email,
-    contactNo,
-    enquiryType,
-    message,
-  });
-
-  if (emailMessage) {
-    res.status(201).json({
-      _id: emailMessage.id,
-      name: emailMessage.firstName + ' ' + emailMessage.lastName,
-      email: emailMessage.email,
-      contactNo: emailMessage.contactNo,
-      enquiryType: emailMessage.enquiryType,
-    });
-  } else {
-    res.status(400);
-    throw new Error('Invalid data');
+    throw new Error("Message cannot be empty");
   }
 
   // Send email once validation checks complete
-  const sendData = () => {
-    const sender = firstName + ' ' + lastName + ' ' + email;
+  const sendData = async () => {
+    const sender = firstName + " " + lastName + " " + email;
     const recipient = process.env.EMAIL_RECIPIENT;
     const body = `
     You have a new message from:
@@ -106,22 +82,20 @@ const sendEmail = asyncHandler(async (req, res) => {
     ${message}
     `;
 
-    main(sender, recipient, enquiryType, body).catch((e) => console.log(e));
-
-    res.status(200).json({ message: 'Send email' });
+    main(sender, recipient, enquiryType, body).catch((e) => {
+      console.log(e);
+      res.status(400);
+      throw new Error("Error sending message...please try again ");
+    });
   };
 
   sendData();
-});
 
-// @desc Submit a booking request
-// route POST /api/v1/contact/booking-request
-// @access Public
-const submitBookingRequest = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: 'Submit booking request' });
+  res.status(200).json({
+    message: "Message sent",
+  });
 });
 
 module.exports = {
   sendEmail,
-  submitBookingRequest,
 };

@@ -1,13 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const {
-  startSubscription,
-  endSubscription,
-} = require('../controllers/subscriptionController');
+const { startSubscription } = require("../controllers/subscriptionController");
 
-router.post('/start', startSubscription);
-
-router.post('/end', endSubscription);
+router.post("/start", startSubscription);
 
 module.exports = router;

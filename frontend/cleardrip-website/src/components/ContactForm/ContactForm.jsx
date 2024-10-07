@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import axios from '../../api/axios';
-import './ContactForm.css';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { useState } from "react";
+import axios from "../../api/axios";
+import "./ContactForm.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-const SEND_EMAIL_URL = '/contact/email-enquiry';
+const SEND_EMAIL_URL = "/contact/email-enquiry";
 
 const ContactForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [contactNo, setContactNo] = useState('');
-  const [enquiryType, setEnquiryType] = useState('');
-  const [message, setMessage] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNo, setContactNo] = useState("");
+  const [enquiryType, setEnquiryType] = useState("");
+  const [message, setMessage] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   const reformatInput = () => {
@@ -33,23 +33,23 @@ const ContactForm = () => {
     setContactNo(trimmedContactNo);
 
     // Remove spaces from contact number
-    const formattedContactNo = trimmedContactNo.split(' ').join('');
+    const formattedContactNo = trimmedContactNo.split(" ").join("");
     setContactNo(formattedContactNo);
   };
 
   const resetForm = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setContactNo('');
-    setEnquiryType('');
-    setMessage('');
-    setError('');
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setContactNo("");
+    setEnquiryType("");
+    setMessage("");
+    setError("");
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setError(''); //remove previous errors
+    setError(""); //remove previous errors
 
     reformatInput();
 
@@ -66,12 +66,12 @@ const ContactForm = () => {
           message,
         }),
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
           withCredentials: false,
         }
       );
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         setIsLoading(false);
         resetForm();
         setSuccess(true);
@@ -169,7 +169,11 @@ const ContactForm = () => {
             </div>
           )
         )}
-        <button type='submit' className='submit'>
+        <button
+          type='submit'
+          className='submit'
+          disabled={isLoading ? true : false}
+        >
           Submit
         </button>
       </div>
