@@ -13,6 +13,7 @@ connectDB();
 app.use(
   cors({
     origin: "https://cleardrip.netlify.app/",
+    methods: "GET, POST, PUT, DELETE, OPTIONS",
   })
 );
 app.use(express.json());
