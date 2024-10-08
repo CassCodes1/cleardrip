@@ -12,7 +12,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://cleardrip.netlify.app/",
   })
 );
 app.use(express.json());
